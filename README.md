@@ -1,45 +1,27 @@
-# Frontend Mentor - Rock, Paper, Scissors
+# RockPaperScissorsMasterTDD
 
-![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
 
-## The challenge
+## Development server
 
-Your challenge is to build out this Rock, Paper, Scissors game and get it looking as close to the design as possible and using TDD best practices.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+## Code scaffolding
 
-Your users should be able to:
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-- View the optimal layout for the game depending on their device's screen size
-- Play Rock, Paper, Scissors against the computer
-- Maintain the state of the score after refreshing the browser _(optional)_
-- **Bonus**: Play Rock, Paper, Scissors, Lizard, Spock against the computer _(optional)_
+## Build
 
-Pay attention that you SHOULD develop bonus step after develop, test and review prevoius steps;
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-### Rules
+## Running unit tests
 
-If the player wins, they gain 1 point. If the computer wins, the player loses one point.
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-#### Original
+## Running end-to-end tests
 
-- Paper beats Rock
-- Rock beats Scissors
-- Scissors beats Paper
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-#### Bonus
+## Further help
 
-- Scissors beats Paper
-- Paper beats Rock
-- Rock beats Lizard
-- Lizard beats Spock
-- Spock beats Scissors
-- Scissors beats Lizard
-- Paper beats Spock
-- Rock beats Scissors
-- Lizard beats Paper
-- Spock beats Rock
-
-Not sure what Rock, Paper, Scissors, Lizard, Spock is? [Check out this clip from The Big Bang Theory](https://www.youtube.com/watch?v=iSHPVCBsnLw).
-
-**Have fun building!** 🚀
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
