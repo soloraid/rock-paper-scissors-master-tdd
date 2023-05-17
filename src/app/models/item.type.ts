@@ -1,0 +1,1 @@
+export type ItemType = 'rock' | 'paper' | 'scissors' | undefined;
