@@ -1,0 +1,96 @@
+
+.score-board {
+  border-color: var(--header_outline) !important;
+  animation-name: slideTopToBottom;
+  animation-duration: 1s;
+}
+
+.score-text {
+  color: var(--score_text);
+}
+
+.score {
+  color: var(--dark_text);
+}
+
+.user-select-container {
+  position: relative;
+  margin: auto;
+  animation-name: rotate;
+  animation-duration: 1s;
+  width: 346px;
+}
+
+.rules-container {
+  border-color: var(--header_outline) !important;
+  animation-name: slideBottomToTop;
+  animation-duration: 1s;
+}
+
+.triangle-container {
+  position: absolute;
+  top: calc(50% - 143.5px);
+  left: calc(50% - 156.5px);
+  aspect-ratio: 1;
+  transform: translate(0, 6px) scale3d(0.8, 0.8, 0.8);
+}
+
+.selected-item {
+  animation-name: scaleDown;
+  animation-duration: 0.3s;
+}
+
+.blank-container {
+  background-color: #00000037;
+  width: 8.3rem;
+  height: 8.3rem;
+}
+
+.choose {
+  font-size: 0.7rem !important;
+}
+
+.play-again {
+  &:hover {
+    color: #dd4067;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .fix-md-center {
+    margin-top: 9rem;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    opacity: 0;
+    transform: rotate(200deg) scale3d(0.1, 0.1, 0.1);
+  }
+}
+
+@keyframes slideTopToBottom {
+  from {
+    transform: translateY(-300%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideBottomToTop {
+  from {
+    transform: translateY(300%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleDown {
+  0% {
+    opacity: 0;
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+}
