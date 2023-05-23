@@ -1,0 +1,81 @@
+<div class="d-flex flex-column justify-content-between position-relative p-3 h-100 overflow-hidden">
+    <div class="d-flex justify-content-between align-items-center p-3 border border-3 rounded-3 score-board align-self-center col-md-6 col-12">
+        <div class="d-flex flex-column flex-center justify-content-start text-white">
+            <h2 class="fw-bold m-0 lh-0-8">ROCK</h2>
+            <h2 class="fw-bold m-0 lh-0-8">PAPER</h2>
+            <h2 class="fw-bold m-0 lh-0-8">SCISSORS</h2>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center bg-white rounded-3 px-4 py-2">
+            <h6 class="score-text fw-bold mb-0">score</h6>
+            <h1 data-test="score" class="score mb-0 pt-2 fw-bolder">{{score}}</h1>
+        </div>
+    </div>
+
+    <div class="user-select-container" *ngIf="!computerTurn">
+        <div data-test="triangle" class="triangle-container">
+            <app-icons icon="triangle"></app-icons>
+        </div>
+
+        <div class="d-flex flex-column justify-content-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <app-element data-test="paper" icon="paper" (selectElementEvent)="selectItem($event)"></app-element>
+                <div class="mx-md-4"></div>
+                <app-element data-test="scissors" icon="scissors" (selectElementEvent)="selectItem($event)"></app-element>
+            </div>
+            <app-element data-test="rock" icon="rock" class="mt-5 mx-auto"
+                         (selectElementEvent)="selectItem($event)"></app-element>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center"
+         [ngClass]="{'fix-center computer-select-container': gameResult !== undefined}" *ngIf="computerTurn">
+        <div data-test="user-selected-item" [ngClass]="{'your-item': gameResult !== undefined}"
+             class="d-flex justify-content-start align-items-center flex-column position-relative item">
+            <app-element class="selected-item" [icon]="userSelectedItem"
+                         [selectable]="false"></app-element>
+            <span class="text-white choose letter-spacing-3 fw-bold my-3 you-picked">YOUR PICKED</span>
+            <div class="circle circle-1" *ngIf="gameResult === 'YOU WIN'"></div>
+            <div class="circle circle-2" *ngIf="gameResult === 'YOU WIN'"></div>
+            <div class="circle circle-3" *ngIf="gameResult === 'YOU WIN'"></div>
+        </div>
+
+        <div class="mx-2"></div>
+        <div class="d-md-flex flex-column justify-content-start align-items-center align-self-center d-none mx-5 result-container"
+             data-test="play-again" *ngIf="gameResult !== undefined">
+            <p class="text-white letter-spacing-3 mx-auto fs-2 text-center fw-bold w-100">{{gameResult}}</p>
+            <button class="play-again letter-spacing-3 fs-6 bg-white border-0 rounded-3 px-4 py-3 fw-bold w-100"
+                    (click)="resetBoardGame()">
+                PLAY AGAIN
+            </button>
+        </div>
+        <div class="mx-2"></div>
+
+        <div data-test="computer-selected-item" [ngClass]="{'house-item': gameResult !== undefined}"
+             class="d-flex justify-content-start align-items-center flex-column position-relative item">
+            <div *ngIf="!computerSelectedItem && userSelectedItem" data-test="blank-circle"
+                 class="rounded-circle blank-container p-5"></div>
+            <app-element *ngIf="computerSelectedItem" class="selected-item" [icon]="computerSelectedItem"
+                         [selectable]="false"></app-element>
+            <span class="text-white choose letter-spacing-3 fw-bold my-3 computer-picked">THE HOUSE PICKED</span>
+            <div class="circle circle-1" *ngIf="gameResult === 'YOU LOSE'"></div>
+            <div class="circle circle-2" *ngIf="gameResult === 'YOU LOSE'"></div>
+            <div class="circle circle-3" *ngIf="gameResult === 'YOU LOSE'"></div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column justify-content-end align-items-end">
+        <div class="result-container d-flex flex-column justify-content-start align-items-center align-self-center mb-5 vw-100 d-md-none"
+             data-test="play-again" *ngIf="gameResult !== undefined">
+            <p class="text-white letter-spacing-3 mx-auto display-2 text-center fw-bold w-50">{{gameResult}}</p>
+            <button class="play-again letter-spacing-3 bg-white border-0 rounded-3 px-4 py-3 fw-bold w-50"
+                    (click)="resetBoardGame()">
+                PLAY AGAIN
+            </button>
+        </div>
+        <div data-test="rules-btn"
+             class="align-self-md-end align-self-sm-center align-self-center border border-3 rounded-3 rules-container mb-5">
+            <button class="bg-transparent border-0 text-white px-4" (click)="openRulesDialog()"><h5
+                    class="my-1 mx-3 letter-spacing-3 fw-bold">RULES</h5></button>
+        </div>
+    </div>
+</div>
