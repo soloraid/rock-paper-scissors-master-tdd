@@ -4,6 +4,8 @@
             <h2 class="fw-bold m-0 lh-0-8">ROCK</h2>
             <h2 class="fw-bold m-0 lh-0-8">PAPER</h2>
             <h2 class="fw-bold m-0 lh-0-8">SCISSORS</h2>
+            <h2 class="fw-bold m-0 lh-0-8">LIZARD</h2>
+            <h2 class="fw-bold m-0 lh-0-8">SPOCK</h2>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center bg-white rounded-3 px-4 py-2">
             <h6 class="score-text fw-bold mb-0">score</h6>
@@ -12,18 +14,23 @@
     </div>
 
     <div class="user-select-container" *ngIf="!computerTurn">
-        <div data-test="triangle" class="triangle-container">
-            <app-icons icon="triangle"></app-icons>
+        <div data-test="pentagon" class="pentagon-container">
+            <app-icons icon="pentagon"></app-icons>
         </div>
 
         <div class="d-flex flex-column justify-content-center">
+            <app-element data-test="scissors" icon="scissors" class="mx-auto" (selectElementEvent)="selectItem($event)"></app-element>
             <div class="d-flex justify-content-between align-items-center">
-                <app-element data-test="paper" icon="paper" (selectElementEvent)="selectItem($event)"></app-element>
+                <app-element data-test="spock" icon="spock" (selectElementEvent)="selectItem($event)"></app-element>
                 <div class="mx-md-4"></div>
-                <app-element data-test="scissors" icon="scissors" (selectElementEvent)="selectItem($event)"></app-element>
+                <app-element data-test="paper" icon="paper" (selectElementEvent)="selectItem($event)"></app-element>
             </div>
-            <app-element data-test="rock" icon="rock" class="mt-5 mx-auto"
-                         (selectElementEvent)="selectItem($event)"></app-element>
+
+            <div class="d-flex justify-content-between align-items-center mx-5 mt-3">
+                <app-element data-test="lizard" icon="lizard" (selectElementEvent)="selectItem($event)"></app-element>
+                <div class="mx-md-1"></div>
+                <app-element data-test="rock" icon="rock" (selectElementEvent)="selectItem($event)"></app-element>
+            </div>
         </div>
     </div>
 
@@ -52,9 +59,9 @@
 
         <div data-test="computer-selected-item" [ngClass]="{'house-item': gameResult !== undefined}"
              class="d-flex justify-content-start align-items-center flex-column position-relative item">
-            <div *ngIf="!computerSelectedItem && userSelectedItem" data-test="blank-circle"
+            <div *ngIf="computerSelectedItem === 'none' && userSelectedItem !== 'none'" data-test="blank-circle"
                  class="rounded-circle blank-container p-5"></div>
-            <app-element *ngIf="computerSelectedItem" class="selected-item" [icon]="computerSelectedItem"
+            <app-element *ngIf="computerSelectedItem !== 'none'" class="selected-item" [icon]="computerSelectedItem"
                          [selectable]="false"></app-element>
             <span class="text-white choose letter-spacing-3 fw-bold my-3 computer-picked">THE HOUSE PICKED</span>
             <div class="circle circle-1" *ngIf="gameResult === 'YOU LOSE'"></div>

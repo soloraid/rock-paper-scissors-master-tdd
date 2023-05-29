@@ -1,3 +1,4 @@
-<div data-test="element" class="{{icon}}-container {{icon}}-md-container" (click)="emitElement()">
+<div data-test="element" class="{{icon}}-container"
+     [ngClass]="{'icon-md-container': !selectable}" (click)="emitElement()">
     <app-icons [icon]="icon" class="{{icon}}"></app-icons>
 </div>

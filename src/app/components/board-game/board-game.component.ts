@@ -13,10 +13,10 @@ import {BreakpointObserver} from '@angular/cdk/layout';
 })
 export class BoardGameComponent implements OnInit {
     score = 0;
-    userSelectedItem: ItemType;
-    computerSelectedItem: ItemType;
+    userSelectedItem: ItemType = 'none';
+    computerSelectedItem: ItemType = 'none';
     computerTurn = false;
-    choices: ItemType[] = ['rock', 'paper', 'scissors'];
+    choices: ItemType[] = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
     gameResult: GameResultType;
     private configurationDialog: any;
     private dataDialog: { fullScreen: boolean } = {fullScreen: false};
@@ -39,7 +39,7 @@ export class BoardGameComponent implements OnInit {
             } else {
                 this.configurationDialog = {
                     maxWidth: '400px',
-                    maxHeight: '400px',
+                    maxHeight: '450px',
                     height: '100%',
                     width: '100%',
                     data: {fullScreen: state.matches},
@@ -59,15 +59,15 @@ export class BoardGameComponent implements OnInit {
     }
 
     computeResult(): void {
-        this.computerSelectedItem = this.choices[Math.floor(Math.random() * 3)];
+        this.computerSelectedItem = this.choices[Math.floor(Math.random() * 5)];
         this.gameResult = this.gameService.computeResult(this.userSelectedItem, this.computerSelectedItem);
         this.score = this.gameService.computeScore(this.gameResult, this.score);
     }
 
     resetBoardGame(): void {
         this.computerTurn = false;
-        this.userSelectedItem = undefined;
-        this.computerSelectedItem = undefined;
+        this.userSelectedItem = 'none';
+        this.computerSelectedItem = 'none';
         this.gameResult = undefined;
     }
 }
