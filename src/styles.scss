@@ -5,7 +5,7 @@
   --paper_gradient: linear-gradient(to bottom, hsl(230, 89%, 65%), hsl(230, 89%, 62%));
   --rock_gradient: linear-gradient(to bottom, hsl(349, 70%, 56%), hsl(349, 71%, 52%));
   --lizard_gradient: linear-gradient(to bottom, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
-  --cyan: linear-gradient(to bottom, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  --spock_gradient: linear-gradient(to bottom, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
   --background_color: linear-gradient(to bottom, hsl(214, 47%, 23%) 40%, hsl(237, 49%, 15%) 100%);
   --dark_text: hsl(229, 25%, 31%);
   --score_text: hsl(229, 64%, 46%);
@@ -26,9 +26,9 @@ body {
   margin: 0 !important;
 }
 
-.scissors-container, .paper-container, .rock-container {
-  width: 8.3rem;
-  height: 8.3rem;
+.scissors-container, .paper-container, .rock-container, .lizard-container, .spock-container {
+  width: 7.3rem;
+  height: 7.3rem;
   justify-self: flex-start;
   display: grid;
   place-items: center;
@@ -38,7 +38,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .scissors-md-container, .paper-md-container, .rock-md-container {
+  .icon-md-container  {
     width: 10.3rem;
     height: 10.3rem;
   }
@@ -59,7 +59,17 @@ body {
   box-shadow: 0 7px 0 hsl(349, 70%, 40%);
 }
 
-.scissors, .paper, .rock {
+.lizard-container {
+  background-image: var(--lizard_gradient);
+  box-shadow: 0 7px 0 hsl(261, 73%, 50%);
+}
+
+.spock-container {
+  background-image: var(--spock_gradient);
+  box-shadow: 0 7px 0 hsl(189, 59%, 40%);
+}
+
+.scissors, .paper, .rock, .lizard , .spock {
   width: 75%;
   height: 75%;
   display: grid;

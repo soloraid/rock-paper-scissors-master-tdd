@@ -7,7 +7,7 @@ import {ItemType} from '../../models/item.type';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ElementComponent {
-  @Input() icon: ItemType;
+  @Input() icon: ItemType = 'none';
   @Input() selectable = true;
   @Output() selectElementEvent = new EventEmitter<ItemType>();
 

@@ -1,1 +1,1 @@
-export type ItemType = 'rock' | 'paper' | 'scissors' | undefined;
+export type ItemType = 'rock' | 'paper' | 'scissors' | 'lizard' | 'spock' | 'none';

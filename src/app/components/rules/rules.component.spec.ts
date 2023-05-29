@@ -38,7 +38,7 @@ describe('RulesComponent', () => {
     });
 
     it('should show rules', () => {
-        const rules = element('[data-test="rules"]');
+        const rules = element('[data-test="rulesBonus"]');
         expect(rules).toBeTruthy();
     });
 

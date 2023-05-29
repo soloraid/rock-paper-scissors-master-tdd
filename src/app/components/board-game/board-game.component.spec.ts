@@ -47,9 +47,9 @@ describe('MainBoardComponent', () => {
         expect(score).toBeTruthy();
     });
 
-    it('should show triangle', () => {
-        const triangle = element('[data-test="triangle"]');
-        expect(triangle).toBeTruthy();
+    it('should show pentagon', () => {
+        const pentagon = element('[data-test="pentagon"]');
+        expect(pentagon).toBeTruthy();
     });
 
     it('should show rock', () => {
@@ -61,6 +61,15 @@ describe('MainBoardComponent', () => {
         const paper = element('[data-test="paper"]');
         expect(paper).toBeTruthy();
     });
+
+    it('should show lizard', () => {
+        const lizard = element('[data-test="lizard"]');
+        expect(lizard).toBeTruthy();
+    });
+
+    it('should show spock', () => {
+        const spock = element('[data-test="spock"]');
+        expect(spock).toBeTruthy();});
 
     it('should show scissors', () => {
         const scissors = element('[data-test="scissors"]');
@@ -179,7 +188,7 @@ describe('MainBoardComponent', () => {
         fixture.detectChanges();
         const playAgainBtn = element('[data-test="play-again"] button');
         playAgainBtn.click();
-        expect(component.userSelectedItem).toBe(undefined);
+        expect(component.userSelectedItem).toBe('none');
     }));
 
     it('should reset computer selection after clicking on play again button', fakeAsync(() => {
@@ -191,7 +200,7 @@ describe('MainBoardComponent', () => {
         fixture.detectChanges();
         const playAgainBtn = element('[data-test="play-again"] button');
         playAgainBtn.click();
-        expect(component.computerSelectedItem).toBe(undefined);
+        expect(component.computerSelectedItem).toBe('none');
     }));
 
     it('should reset computer selection after clicking on play again button', fakeAsync(() => {
