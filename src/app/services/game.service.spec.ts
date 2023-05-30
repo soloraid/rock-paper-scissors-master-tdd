@@ -22,6 +22,30 @@ describe('GameService', () => {
         expect(service.computeResult('scissors', 'paper')).toContain('YOU WIN');
     });
 
+    it('should show YOU WIN when first player paper and second player spock', () => {
+        expect(service.computeResult('paper', 'spock')).toContain('YOU WIN');
+    });
+
+    it('should show YOU WIN when first player scissors and second player lizard', () => {
+        expect(service.computeResult('scissors', 'lizard')).toContain('YOU WIN');
+    });
+
+    it('should show YOU WIN when first player spock and second player rock', () => {
+        expect(service.computeResult('spock', 'rock')).toContain('YOU WIN');
+    });
+
+    it('should show YOU WIN when first player lizard and second player paper', () => {
+        expect(service.computeResult('lizard', 'paper')).toContain('YOU WIN');
+    });
+
+    it('should show YOU WIN when first player lizard and second player spock', () => {
+        expect(service.computeResult('lizard', 'spock')).toContain('YOU WIN');
+    });
+
+    it('should show YOU WIN when first player spock and second player scissors', () => {
+        expect(service.computeResult('spock', 'scissors')).toContain('YOU WIN');
+    });
+
     it('should show YOU LOSE when first player paper and second player scissors', () => {
         expect(service.computeResult('paper', 'scissors')).toContain('YOU LOSE');
     });
@@ -34,6 +58,30 @@ describe('GameService', () => {
         expect(service.computeResult('scissors', 'rock')).toContain('YOU LOSE');
     });
 
+    it('should show YOU WIN when first player spock and second player paper', () => {
+        expect(service.computeResult('spock', 'paper')).toContain('YOU LOSE');
+    });
+
+    it('should show YOU WIN when first player lizard and second player scissors', () => {
+        expect(service.computeResult('lizard', 'scissors')).toContain('YOU LOSE');
+    });
+
+    it('should show YOU WIN when first player rock and second player spock', () => {
+        expect(service.computeResult('rock', 'spock')).toContain('YOU LOSE');
+    });
+
+    it('should show YOU WIN when first player paper and second player lizard', () => {
+        expect(service.computeResult('paper', 'lizard')).toContain('YOU LOSE');
+    });
+
+    it('should show YOU WIN when first player spock and second player lizard', () => {
+        expect(service.computeResult('spock', 'lizard')).toContain('YOU LOSE');
+    });
+
+    it('should show YOU WIN when first player scissors and second player spock', () => {
+        expect(service.computeResult('scissors', 'spock')).toContain('YOU LOSE');
+    });
+
     it('should show DRAW when first player paper and second player paper', () => {
         expect(service.computeResult('paper', 'paper')).toContain('DRAW');
     });
@@ -44,6 +92,14 @@ describe('GameService', () => {
 
     it('should show DRAW when first player scissors and second player scissors', () => {
         expect(service.computeResult('scissors', 'scissors')).toContain('DRAW');
+    });
+
+    it('should show DRAW when first player lizard and second player lizard', () => {
+        expect(service.computeResult('lizard', 'lizard')).toContain('DRAW');
+    });
+
+    it('should show DRAW when first player spock and second player spock', () => {
+        expect(service.computeResult('spock', 'spock')).toContain('DRAW');
     });
 
     it('should show increase score', () => {

@@ -6,28 +6,20 @@ import {GameResultType} from '../models/game-result.type';
     providedIn: 'root',
 })
 export class GameService {
-
+    private winner = {
+        scissors: ['paper', 'lizard'],
+        paper: ['rock', 'spock'],
+        rock: ['lizard', 'scissors'],
+        lizard: ['spock', 'paper'],
+        spock: ['scissors', 'rock'],
+        none: [],
+    }
     computeResult(firstPlayerItem: ItemType, secondPlayerItem: ItemType): GameResultType {
         if (firstPlayerItem === secondPlayerItem) {
             return 'DRAW';
         }
-        switch (firstPlayerItem) {
-            case 'paper':
-                if (secondPlayerItem === 'rock') {
-                    return 'YOU WIN';
-                }
-                break;
-            case 'rock':
-                if (secondPlayerItem === 'scissors') {
-                    return 'YOU WIN';
-                }
-                break;
-            case 'scissors':
-                if (secondPlayerItem === 'paper') {
-                    return 'YOU WIN';
-                }
-                break;
-
+        if(this.winner[firstPlayerItem].includes(secondPlayerItem)) {
+            return 'YOU WIN';
         }
         return 'YOU LOSE';
     }
